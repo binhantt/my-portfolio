@@ -1,0 +1,17 @@
+body{
+    margin: 0;
+}
+.footer_color{
+    background-color: white;
+    font-size: 15px ;
+    font-weight: 500;
+    py: -4px;
+}
+.demo-logo{
+   display: flex ;
+   justify-content: center;
+   align-items: center;
+   gap: 1rem;
+   font-weight: 700;
+   color: black; 
+}

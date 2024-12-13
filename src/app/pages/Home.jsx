@@ -4,7 +4,7 @@ const Home = () => {
     return (
         <MasterLayouts >
             <div>
-                bghhnf
+             
             </div>
         </MasterLayouts>     
     )
