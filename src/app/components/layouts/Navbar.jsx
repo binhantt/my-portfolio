@@ -46,7 +46,7 @@ const Navbar = () => {
                     minWidth: 0,
                 }}
             />
-                <Input style={{width : "20%"}} addonBefore={<SearchOutlined />} placeholder="Tim kiem6" />
+                <Input style={{width : "20%"}} addonBefore={<SearchOutlined />} placeholder="Tim kiem" />
         </Header >
     )
 }
