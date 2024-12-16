@@ -1,9 +1,15 @@
 :root{
     --text-color : white ; 
     --text-shadow :  2px 2px 5px rgba(0, 0, 0, 0.5) ; 
-    
+    --text-main  : 14px ; 
 }
 
+.boder-List{
+    border-bottom: 1px solid gray;
+}
+.bg-white {
+    background: white;
+}
 .p_main{
     padding: 0 50px ;
 }
@@ -14,7 +20,7 @@ body{
     background-color: white;
     font-size: 15px ;
     font-weight: 500;
-    py: -4px;
+
 }
 .demo-logo{
    display: flex ;
@@ -31,26 +37,47 @@ body{
      width: 50%;
 }
 .title-2{
-    font-size: 14px;
+    font-size: 5rem ;
     color: var(--text-color);
     text-shadow:var(--text-shadow); 
     margin: 0;
 }
 .title { 
-    font-size: 14px;
+    font-size: var(--text-main);
     font-weight: 600;
     color: var(--text-color);
     text-shadow:var(--text-shadow);
     margin: 0;
-
+ 
 }
 .title-1{
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: var(--text-main);
     color: var(--text-color);
     text-shadow:var(--text-shadow);
     margin: 0;
-
+}
+.text-card{
+    color: black;
+}
+.Card{
+   width:  200 ;
+   padding: 0.5rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+}
+.title-4{
+    font-size: 2rem;
+    color:black ; 
+    font-weight: 400;
+    margin: 0;
+}
+.title-3{
+    font-size: var(--text-main);
+    color: black ; 
+    font-weight: 100;
+    margin: 0;
 }
 .bg_portfolio{
     background-image: url("https://img.lovepik.com/bg/20240418/Serene-Nature-Scenery-Stunning-3D-Illustration-of-Idyllic-Moonlit-Autumn_6304413_wh860.jpg!/fw/860");
@@ -63,4 +90,6 @@ body{
 .list_main{
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+    padding-top:  1rem;
+    padding-bottom:1rem ;
 }

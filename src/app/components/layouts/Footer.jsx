@@ -33,12 +33,12 @@ const Footer = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [size, setSize] = useState('large');
   return (
-   <Flex  className='footer_color' vertical>
-     <Flex className='p_main'   style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "3rem" }}>
-      <Flex vertical gap={1} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
-        <p> Liên Hệ tui  </p>
-        <p>  Dưới đây là 1 số cách liên hệ tới tui </p>
-        <p> Cảm ơn các  bạn đã đến xem trang của mình</p>
+   <Flex  className='footer_color' style={{paddingTop: "2rem"}} vertical>
+     <Flex className='p_main'   style={{ display: "flex", justifyContent: "space-between", gap: "3rem" }}>
+      <Flex vertical gap={1} style={{ display: "flex", alignItems: "center" }}>
+        <p className='title-3'> Liên Hệ tui  </p>
+        <p className='title-3'>  Dưới đây là 1 số cách liên hệ tới tui </p>
+        <p className='title-3'> Cảm ơn các  bạn đã đến xem trang của mình</p>
       
         <Menu
           mode="inline"
@@ -46,31 +46,31 @@ const Footer = () => {
           defaultSelectedKeys={['github']}
           defaultOpenKeys={['github']}
           inlineCollapsed={collapsed}
-          style={{ width: '100%', maxWidth: '300px' }}
+          style={{ width: '100%', maxWidth: '300px', fontWeight : "100" }}
         />
       </Flex>
       <Flex vertical gap={12} style={{ width: "50%" }}>
         <Flex vertical gap={2}>
-          <label htmlFor="name"> Name</label>
+          <label className='title-3' htmlFor="name"> Name</label>
           <Input placeholder="Basic usage" />
         </Flex>
         <Flex vertical gap={2}>
-          <label htmlFor="name"> Gmail</label>
+          <label className='title-3' htmlFor="name"> Gmail</label>
           <Input placeholder="Basic usage" />
         </Flex>
         <Flex vertical gap={2}>
-          <label htmlFor="name"> Trò chuyện</label>
+          <label className='title-3' htmlFor="name"> Trò chuyện</label>
           <TextArea rows={4} />
         </Flex>
-        <div style={{display :"flex" , justifyContent : "center" , alignItems :"center" , }}>
-          <Button style={{width :"20%"}} type="primary" size={size}>
+        <div style={{display :"flex" , justifyContent : "center" , alignItems :"center"  }}>
+          <Button style={{width :"20%", color :"white"}} type="primary" size={size} className='title-3'>
               nói chuyện 
           </Button>
         </div>
 
       </Flex>
     </Flex>
-      <Flex style={{display :"flex" , justifyContent : "center" , alignItems :"center" , }}>
+      <Flex className='title-3' style={{display :"flex" , justifyContent : "center" , alignItems :"center" , }}>
           @ Chào tạm biệt hẹn gặp lại vào 1 ngày nào đó 
       </Flex>
    </Flex>
