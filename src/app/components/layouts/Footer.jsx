@@ -1,78 +1,80 @@
-import { FacebookOutlined, GithubOutlined, GooglePlusOutlined, PhoneOutlined } from "@ant-design/icons";
-import { Col, Flex, Menu, Row } from "antd"
-import { Content } from "antd/es/layout/layout"
-
-
+import { GithubFilled, LinkedinFilled, MailFilled, PhoneFilled } from '@ant-design/icons';
+import { Button, Flex, Menu } from 'antd';
+import { Input } from 'antd';
+const { TextArea } = Input;
+import React, { useState } from 'react';
 const items = [
-    {
-        key: '1',
-        icon: <GithubOutlined />,
-        label: 'Github',
-
-    },
-    {
-        key: '2',
-        icon: <FacebookOutlined />,
-        label: 'Facebook',
-    },
-    {
-        key: '3',
-         icon:<GooglePlusOutlined />,
-        label: 'Goole ',
-    },
-    {
-        key: '4',
-        icon: <PhoneOutlined />,
-        label: 'Zalo',
-    }
+  {
+    key: 'github',
+    icon: <GithubFilled />,
+    label: 'Github',
+    href: 'https://github.com/your-github-username',
+  },
+  {
+    key: 'linkedin',
+    icon: <LinkedinFilled />,
+    label: 'LinkedIn',
+    href: 'https://linkedin.com/in/your-linkedin-username',
+  },
+  {
+    key: 'email',
+    icon: <MailFilled />,
+    label: 'Email',
+    href: 'mailto:your-email@example.com',
+  },
+  {
+    key: 'phone',
+    icon: <PhoneFilled />,
+    label: 'Phone',
+    href: 'tel:+1234567890',
+  },
 ];
-
 const Footer = () => {
-    const onClick = (e) => {
-        console.log('click', e);
-      };
-    return (
-        <Content
-        style={{
-            display: 'flex',
-            alignItems: 'center',
-            background: "white",
-            justifyContent: "space-evenly",
-            padding: '20px'
-        }}
-    >
-        <Row gutter={[16, 16]} style={{ width: '100%' }}>
-            {/* Logo Section */}
-            <Col xs={24} sm={24} md={8} style={{ textAlign: 'center' }}>
-                <img 
-                    src="http://localhost:3000/_next/static/media/Keithston_football_club-removebg-preview.d85d84eb.png" 
-                    alt="Keithston Football Club Logo"
-                    style={{ width: "300px" }} 
-                />
-            </Col>
+  const [collapsed, setCollapsed] = useState(false);
+  const [size, setSize] = useState('large');
+  return (
+   <Flex  className='footer_color' vertical>
+     <Flex className='p_main'   style={{ display: "flex", justifyContent: "space-between", alignItems: "center", gap: "3rem" }}>
+      <Flex vertical gap={1} style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <p> Liên Hệ tui  </p>
+        <p>  Dưới đây là 1 số cách liên hệ tới tui </p>
+        <p> Cảm ơn các  bạn đã đến xem trang của mình</p>
+      
+        <Menu
+          mode="inline"
+          items={items}
+          defaultSelectedKeys={['github']}
+          defaultOpenKeys={['github']}
+          inlineCollapsed={collapsed}
+          style={{ width: '100%', maxWidth: '300px' }}
+        />
+      </Flex>
+      <Flex vertical gap={12} style={{ width: "50%" }}>
+        <Flex vertical gap={2}>
+          <label htmlFor="name"> Name</label>
+          <Input placeholder="Basic usage" />
+        </Flex>
+        <Flex vertical gap={2}>
+          <label htmlFor="name"> Gmail</label>
+          <Input placeholder="Basic usage" />
+        </Flex>
+        <Flex vertical gap={2}>
+          <label htmlFor="name"> Trò chuyện</label>
+          <TextArea rows={4} />
+        </Flex>
+        <div style={{display :"flex" , justifyContent : "center" , alignItems :"center" , }}>
+          <Button style={{width :"20%"}} type="primary" size={size}>
+              nói chuyện 
+          </Button>
+        </div>
 
-            {/* Info Section */}
-            <Col xs={24} sm={24} md={8}>    
-                <p> Nhà Phát triển : Đỗ Bình An </p>
-                <p> Năm sinh  : 17/04/2003 </p>
-                <p>Nơi sinh   : Tiền Giang   </p>
-
-            </Col>
-
-            {/* Menu Section */}
-            <Col xs={24} sm={24} md={8}>
-                <Menu
-                    onClick={onClick}
-                    style={{
-                        width: 300,
-                    }}
-                    mode="vertical"
-                    items={items}
-                />
-            </Col>
-        </Row>
-    </Content>
-    )
+      </Flex>
+    </Flex>
+      <Flex style={{display :"flex" , justifyContent : "center" , alignItems :"center" , }}>
+          @ Chào tạm biệt hẹn gặp lại vào 1 ngày nào đó 
+      </Flex>
+   </Flex>
+  )
 }
 export default Footer
 

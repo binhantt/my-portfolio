@@ -1,5 +1,5 @@
-import React from 'react';
-import { Flex, Layout, Menu } from 'antd';
+import React, { useState } from 'react';
+import { Button, Flex, Layout, Menu } from 'antd';
 import { ContactsOutlined, HomeOutlined, PhoneOutlined, SearchOutlined } from '@ant-design/icons';
 import { Input } from 'antd';
 const { Search } = Input;
@@ -8,21 +8,22 @@ const items = [
     {
         key: '1',
         icon: <HomeOutlined />,
-        label: 'Gioi thieu ',
+        label: 'Giới thiệu  ',
     },
     {
         key: '2',
         icon: <ContactsOutlined />,
-        label: 'San pham',
+        label: 'Sản phẩm',
     },
     {
         key: '3',
         icon: <PhoneOutlined />,
-        label: 'Lien he',
+        label: 'Ngôn ngữ đã học  ',
     }
 ];
 
 const Navbar = () => {
+    const [size, setSize] = useState('large'); 
     return (
         <Header
             style={{
@@ -46,7 +47,10 @@ const Navbar = () => {
                     minWidth: 0,
                 }}
             />
-                <Input style={{width : "20%"}} addonBefore={<SearchOutlined />} placeholder="Tim kiem" />
+            <Button className="bg-slate-50" type="primary" size={size}>
+              Liên hệ ngay 
+          </Button>
+
         </Header >
     )
 }
