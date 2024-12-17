@@ -3,32 +3,7 @@ import { Button, Flex, Menu } from 'antd';
 import { Input } from 'antd';
 const { TextArea } = Input;
 import React, { useState } from 'react';
-const items = [
-  {
-    key: 'github',
-    icon: <GithubFilled />,
-    label: 'Github',
-    href: 'https://github.com/your-github-username',
-  },
-  {
-    key: 'linkedin',
-    icon: <LinkedinFilled />,
-    label: 'LinkedIn',
-    href: 'https://linkedin.com/in/your-linkedin-username',
-  },
-  {
-    key: 'email',
-    icon: <MailFilled />,
-    label: 'Email',
-    href: 'mailto:your-email@example.com',
-  },
-  {
-    key: 'phone',
-    icon: <PhoneFilled />,
-    label: 'Phone',
-    href: 'tel:+1234567890',
-  },
-];
+import {ItemFoort} from "../../config"
 const Footer = () => {
   const [collapsed, setCollapsed] = useState(false);
   const [size, setSize] = useState('large');
@@ -42,7 +17,7 @@ const Footer = () => {
       
         <Menu
           mode="inline"
-          items={items}
+          items={ItemFoort}
           defaultSelectedKeys={['github']}
           defaultOpenKeys={['github']}
           inlineCollapsed={collapsed}

@@ -48,7 +48,9 @@ const Navbar = () => {
                     minWidth: 0,
                 }}
             />
-            <Button className="bg-blue-500" type="primary" size={size}>
+            
+            <Button className="text-blue-500" type="dashed"  size={size}>
+            <PhoneOutlined />
               Liên hệ ngay 
           </Button>
 

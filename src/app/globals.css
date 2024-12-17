@@ -81,6 +81,8 @@ body{
 }
 .bg_portfolio{
     background-image: url("https://img.lovepik.com/bg/20240418/Serene-Nature-Scenery-Stunning-3D-Illustration-of-Idyllic-Moonlit-Autumn_6304413_wh860.jpg!/fw/860");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 .flex_row_main{
     display: flex;

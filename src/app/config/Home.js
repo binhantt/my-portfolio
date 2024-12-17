@@ -1,3 +1,4 @@
+import {  GithubOutlined, LinkedinFilled, MailFilled, PhoneFilled } from '@ant-design/icons';
 const ItemsFramework = [
     {
       src: "https://static-00.iconduck.com/assets.00/html-5-icon-224x256-1b5ud2sy.png",
@@ -35,4 +36,30 @@ const ItemsFramework = [
       title: "AnatonLandingPage"
     }
   ]
-  export { ItemsFramework , ItemProduct }
+  const ItemFoort =[
+    {
+      key: 'github',
+      label: 'GitHub',
+      icon: <GithubOutlined />, 
+      href: 'https://github.com/your-github-username',
+    },
+    {
+      key: 'linkedin',
+      icon: <LinkedinFilled />,
+      label: 'LinkedIn',
+      href: 'https://linkedin.com/in/your-linkedin-username',
+    },
+    {
+      key: 'email',
+      icon: <MailFilled />,
+      label: 'Email',
+      href: 'mailto:your-email@example.com',
+    },
+    {
+      key: 'phone',
+      icon: <PhoneFilled />,
+      label: 'Phone',
+      href: 'tel:+1234567890',
+    },
+  ]
+  export { ItemsFramework , ItemProduct , ItemFoort }
