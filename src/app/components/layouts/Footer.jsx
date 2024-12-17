@@ -34,7 +34,7 @@ const Footer = () => {
   const [size, setSize] = useState('large');
   return (
    <Flex  className='footer_color' style={{paddingTop: "2rem"}} vertical>
-     <Flex className='p_main'   style={{ display: "flex", justifyContent: "space-between", gap: "3rem" }}>
+     <Flex className='p_main flex md:flex-row flex-col'   style={{ display: "flex", justifyContent: "space-between", gap: "3rem" }}>
       <Flex vertical gap={1} style={{ display: "flex", alignItems: "center" }}>
         <p className='title-3'> Liên Hệ tui  </p>
         <p className='title-3'>  Dưới đây là 1 số cách liên hệ tới tui </p>
@@ -49,7 +49,7 @@ const Footer = () => {
           style={{ width: '100%', maxWidth: '300px', fontWeight : "100" }}
         />
       </Flex>
-      <Flex vertical gap={12} style={{ width: "50%" }}>
+      <Flex vertical gap={12} className='md:w-1/2 w-full'>
         <Flex vertical gap={2}>
           <label className='title-3' htmlFor="name"> Name</label>
           <Input placeholder="Basic usage" />
@@ -63,7 +63,7 @@ const Footer = () => {
           <TextArea rows={4} />
         </Flex>
         <div style={{display :"flex" , justifyContent : "center" , alignItems :"center"  }}>
-          <Button style={{width :"20%", color :"white"}} type="primary" size={size} className='title-3'>
+          <Button classNames="md:w-[20%] w-1/2 " style={{ color :"white"}} type="primary" size={size} className='title-3'>
               nói chuyện 
           </Button>
         </div>

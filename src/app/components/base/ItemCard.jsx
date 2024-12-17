@@ -1,7 +1,7 @@
 import React from "react";
 import { Card } from "antd";
 
-function ItemCard({ src, title }) {
+const ItemCard = ({ src, title })=> {
   return (
     <Card
       hoverable

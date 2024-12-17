@@ -26,6 +26,7 @@ const Navbar = () => {
     const [size, setSize] = useState('large'); 
     return (
         <Header
+        className="w-full"
             style={{
                 display: 'flex',
                 alignItems: 'center',
@@ -47,7 +48,7 @@ const Navbar = () => {
                     minWidth: 0,
                 }}
             />
-            <Button className="bg-slate-50" type="primary" size={size}>
+            <Button className="bg-blue-500" type="primary" size={size}>
               Liên hệ ngay 
           </Button>
 
