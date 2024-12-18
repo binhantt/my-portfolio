@@ -34,7 +34,7 @@ const Navbar = () => {
             }}
         >
             <div className="demo-logo" >
-                <img src="http://localhost:3000/_next/static/media/Keithston_football_club-removebg-preview.d85d84eb.png" style={{ width: "50px", border :"1px soild gray" }} />
+                <img src="/logo.png" style={{ width: "50px", border :"1px soild gray" }} />
                 <div>BinhAntt</div>
             </div>
             <Menu

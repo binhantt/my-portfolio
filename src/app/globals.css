@@ -60,7 +60,7 @@ body{
     color: black;
 }
 .Card{
-   width:  200 ;
+   width:  150px ;
    padding: 0.5rem;
    display: flex;
    flex-direction: column;
