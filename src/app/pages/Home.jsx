@@ -16,7 +16,7 @@ const Home = () => {
   const size = useState('large');
   return (
 
-    <MasterLayouts  >
+    <MasterLayouts>
       <Flex vertical className="bg_portfolio flex_row_main py-[8vh] " >
         <Flex horizontal className="p_main md:flex-row flex-col-reverse" style={{ width: "100%", display: 'flex', justifyContent: "space-between", paddingBottom: "2rem" }} >
           <Flex horizontal className="flex_row_main">
