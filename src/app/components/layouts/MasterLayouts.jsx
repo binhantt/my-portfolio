@@ -1,13 +1,12 @@
 
-import { Layout } from "antd"
 import {Navbar, Footer} from "./index"
 const  MasterLayouts =  ({children}) => {
     return (    
-        <Layout style={{margin : 0, }}>
-            <Navbar />
+        <div data-aos="zoom-in-up" style={{margin : 0, }}>
+            <Navbar  />
                 {children}
             <Footer />
-        </Layout>
+        </div>
             
     )
 }

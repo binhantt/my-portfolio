@@ -3,7 +3,13 @@
     --text-shadow :  2px 2px 5px rgba(0, 0, 0, 0.5) ; 
     --text-main  : 14px ; 
 }
-
+.navbar{
+    position: fixed;
+    top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
 .boder-List{
     border-bottom: 1px solid gray;
 }
@@ -95,3 +101,28 @@ body{
     padding-top:  1rem;
     padding-bottom:1rem ;
 }
+@keyframes slideDown {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+#screen1 {
+    background-color: #3498db;
+    animation: slideDown 2s ease forwards;
+}
+#screen1 .content {
+    animation: bounce 2s infinite;
+}
+
+

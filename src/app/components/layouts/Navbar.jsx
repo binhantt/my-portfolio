@@ -26,9 +26,10 @@ const Navbar = () => {
     const [size, setSize] = useState('large'); 
     return (
         <Header
-        className="w-full"
+        className="w-full navbar "
             style={{
                 display: 'flex',
+                justifyContent : "center",
                 alignItems: 'center',
                 background :"white"
             }}
@@ -41,15 +42,14 @@ const Navbar = () => {
                 mode="horizontal"
                 defaultSelectedKeys={['2']}
                 items={items}
+                className='flex md:justify-center justify-between '
                 style={{
                     flex: 1,
-                    display: "flex",
-                    justifyContent: "center",
                     minWidth: 0,
                 }}
             />
             
-            <Button className="text-blue-500" type="dashed"  size={size}>
+            <Button className="text-blue-500 md:flex hidden" type="dashed"  size={size}>
             <PhoneOutlined />
               Liên hệ ngay 
           </Button>
