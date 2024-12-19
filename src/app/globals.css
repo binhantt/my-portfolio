@@ -3,13 +3,15 @@
     --text-shadow :  2px 2px 5px rgba(0, 0, 0, 0.5) ; 
     --text-main  : 14px ; 
 }
-.navbar{
-    position: fixed;
+.navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    position: sticky;
     top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1000;
-}
+    z-index: 1000;
+  }
 .boder-List{
     border-bottom: 1px solid gray;
 }

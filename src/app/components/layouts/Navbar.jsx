@@ -26,14 +26,7 @@ const Navbar = () => {
     const [size, setSize] = useState('large'); 
     return (
         <Header
-        className="w-full navbar "
-            style={{
-                display: 'flex',
-                justifyContent : "center",
-                alignItems: 'center',
-                background :"white"
-            }}
-        >
+        className="w-full navbar ">
             <div className="demo-logo" >
                 <img src="/logo.png" style={{ width: "50px", border :"1px soild gray" }} />
                 <div>BinhAntt</div>
