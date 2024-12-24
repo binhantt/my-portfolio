@@ -1,8 +1,9 @@
 
 import {Navbar, Footer} from "./index"
 const  MasterLayouts =  ({children}) => {
+    // data-aos="zoom-in-up"
     return (    
-        <div data-aos="zoom-in-up" style={{margin : 0, }}>
+        <div  style={{margin : 0, }}>
             <Navbar  />
                 {children}
             <Footer />

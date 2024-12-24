@@ -1,21 +1,14 @@
 'use client'
 import React from 'react';
- import { Provider } from 'react-redux'
-//  import dynamic from 'next/dynamic'
- import store from '../store'
-// import { ThemeProvider, createTheme } from '@mui/material/styles'
-// import CssBaseline from '@mui/material/CssBaseline'
+import { Provider } from 'react-redux'
 
-// const RouterProvider = dynamic(
-//   () => import('./RouterProvider').then(mod => mod.RouterProvider),
-//   { ssr: false }
-// )
+import store from '../store'
+
 import RouterProvider from "./RouterProvider"
-export default function Providers({ children }) {
+export default function Providers() {
   return (
-       <Provider store={store}>
-        <RouterProvider />
-        {children}  
-     </Provider>
+    <Provider store={store}>
+      <RouterProvider />
+    </Provider>
   )
 } 

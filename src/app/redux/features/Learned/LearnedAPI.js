@@ -8,10 +8,10 @@ export const fetchLearnedDataThunk = createAsyncThunk(
   async (_, thunkApi) => {
     thunkApi.dispatch(startLoading());
     try {
-      const response = await axios.get('http://localhost:8000/posts');
-      const data = response.data; 
-        thunkApi.dispatch(dataFetched(data));
-        return data ; 
+      const response = await axios.get('http://localhost:8000/title');
+      const data = response.data;
+      thunkApi.dispatch(dataFetched(data));
+      return data;
     } catch (error) {
       console.log('Error fetching data:', error);
       thunkApi.dispatch(dataFetchedWithError());
