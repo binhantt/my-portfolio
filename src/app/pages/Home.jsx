@@ -8,27 +8,21 @@ import { ItemCard } from "../components/base";
 import { ItemsFramework, ItemProduct } from "@/app/config";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchLearnedDataThunk } from "../redux/features/Learned/LearnedAPI";
+import{ API }from "../redux/features/languagecode/api"
 const Home = () => {
   const { data, loading, error } = useSelector((state) => state.learned);
-  console.log(data);
+   const { apidata, loadingapi, errorapi } = useSelector((state) => state.language);
   const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchLearnedDataThunk());
-    if (typeof window !== 'undefined') {
-      const element = window.document.getElementById('myElement');
-      if (element) {
-        element.style.color = 'blue';
-      }
-    }
-  }, [dispatch]);
   useEffect(() => {
     AOS.init({
       duration: 1200,
       once: true
     });
-  }, []);
+    dispatch(fetchLearnedDataThunk());
+    dispatch(API())
+  }, [dispatch]);
+  console.log(apidata);
   const size = useState('large');
-
   return (
 
     <MasterLayouts>
@@ -87,11 +81,13 @@ const Home = () => {
               <img data-aos="fade-right" src="/Congnghe.png" alt="" />
             </Flex>
             <Flex className="md:w-1/2 w-full flex flex-wrap md:gap-3 gap-2 justify-center">
-              {ItemsFramework.map((item, index) => (
-                <div data-aos="fade-down" key={index}>
-                  <ItemCard src={item.src} title={item.title} />
+            {loadingapi ? (<span class="loader"></span>) : (
+              Object.keys(apidata).map((key) => (
+                <div data-aos="fade-down" key={key}>
+                  <ItemCard src={apidata[key].src} title={apidata[key].title} />
                 </div>
-              ))}
+              ))
+            )}
             </Flex>
           </Flex>
         </Flex>

@@ -2,15 +2,15 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import { dataFetched, dataFetchedWithError, startLoading } from "./silce";
 
 export const API = createAsyncThunk(
-    'api/data', async(_,dataapi)=>{
+    'language/data', async(_,dataapi)=>{
         try {
-            const response = await axios.get('http://localhost:8000/language');
-            const data = response.data;
-            thunkApi.dispatch(dataFetched(data));
+            const response = await fetch('http://localhost:8000/language');
+            const data = await response.json();
+            dataapi.dispatch(dataFetched(data));
             return data;
           } catch (error) {
             console.log('Error fetching data:', error);
-            thunkApi.dispatch(dataFetchedWithError());
+            dataapi.dispatch(dataFetchedWithError());
           }
     }
 )

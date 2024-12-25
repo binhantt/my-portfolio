@@ -1,43 +1,42 @@
 const { createSlice } = require("@reduxjs/toolkit");
 import {API} from "./api"
 const  language= createSlice({
-    name: 'api',
+    name: 'language',
     initialState :{
-        learneddata :[],
-      loading: false, 
-      error: null,
+        apidata :[],
+      loadingapi: false, 
+      errorapi: null,
     },
     reducers: {
         startLoading: (state) => {
-          state.loading = true;
+          state.loadingapi = true;
         },
         fetchStart: (state) => {
-          state.loading = true;
-          state.error = null;
+          state.apidata= true;
+          state.errorapi = null;
         },
         dataFetched: (state, action) => {
-          state.learneddata = action.payload; 
-          state.loading = false; 
-          console.log(state.data)
+          state.apidata = action.payload; 
+          state.loadingapi = false; 
         },
         dataFetchedWithError: (state) => {
-          state.loading = false;
-          state.learneddata = [];
-          state.error = true;
+          state.loadingapi = false;
+          state.apidata = [];
+          state.errorapi = true;
         },
       },
        extraReducers: (builder) => {
         builder
           .addCase(API.pending, (state) => {
-            state.loading = true;
-            state.error = null;
+            state.loadingapi = true;
+            state.errorapi = null;
           })
           .addCase(API.fulfilled, (state, action) => {
-            state.loading = false;
+            state.loadingapi = false;
           })
           .addCase(API.rejected, (state, action) => {
-            state.loading = false;
-            state.error = action.payload;
+            state.loadingapi = false;
+            state.errorapi = action.payload;
           });
       },
 })

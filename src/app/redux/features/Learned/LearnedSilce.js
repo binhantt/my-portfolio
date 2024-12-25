@@ -19,7 +19,7 @@ const learnedApiSlice = createSlice({
     dataFetched: (state, action) => {
       state.data = action.payload; 
       state.loading = false; 
-      console.log(state.data)
+      // console.log(state.data)
     },
     dataFetchedWithError: (state) => {
       state.loading = false;
