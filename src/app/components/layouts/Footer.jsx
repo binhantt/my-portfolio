@@ -1,14 +1,21 @@
-import { GithubFilled, LinkedinFilled, MailFilled, PhoneFilled } from '@ant-design/icons';
+
 import { Button, Flex, Menu } from 'antd';
 import { Input } from 'antd';
 const { TextArea } = Input;
-import React, { useState } from 'react';
-import { ItemFoort } from "../../config"
+import React, { useEffect, useState } from 'react';
+import { lienhe } from '@/app/redux/features/indexapi';
+import { useDispatch, useSelector } from 'react-redux';
 const Footer = () => {
+  const { LienHeapi, LienHeLoading, LienHeError } = useSelector((state) => state.lienhe);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(lienhe());
+  }, [dispatch]);
+  console.log(LienHeapi);
   const [collapsed, setCollapsed] = useState(false);
   const [size, setSize] = useState('large');
   return (
-    <div data-aos="fade-up"
+    <div id="Lien_he" data-aos="fade-up"
       data-aos-duration="3000" className='footer_color' style={{ paddingTop: "2rem" }} vertical>
       <Flex className='p_main flex md:flex-row flex-col' style={{ display: "flex", justifyContent: "space-between", gap: "3rem" }}>
         <Flex vertical gap={1} style={{ display: "flex", alignItems: "center" }}>
@@ -18,7 +25,11 @@ const Footer = () => {
 
           <Menu
             mode="inline"
-            items={ItemFoort}
+            items={LienHeapi.map(item => ({
+              key: item.key,
+              label: <a href={item.href} target="_blank" rel="noopener noreferrer">{item.label}</a>,
+              icon: <img src={item.icon} className='w-5' alt={item.label} />,
+            }))}
             defaultSelectedKeys={['github']}
             defaultOpenKeys={['github']}
             inlineCollapsed={collapsed}

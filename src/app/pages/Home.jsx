@@ -5,13 +5,30 @@ import 'aos/dist/aos.css';
 import { useState, useEffect, useRef } from "react";
 import { PhoneOutlined } from "@ant-design/icons";
 import { ItemCard } from "../components/base";
-import { ItemsFramework, ItemProduct } from "@/app/config";
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchLearnedDataThunk } from "../redux/features/Learned/LearnedAPI";
-import{ API }from "../redux/features/languagecode/api"
+import { API, product } from "../redux/features/indexapi"
+
 const Home = () => {
+  const ButonLienHen = () => {
+    const scrollToContactSection = () => {
+      const section = document.getElementById('Lien_he');
+      if (section) {
+          section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+  };
+    return (
+      <div data-aos="zoom-in" className="flex justify-center" gap="2rem">
+        <Button className="px-10 py-5" type="primary" size={size} onClick={scrollToContactSection}>
+          <PhoneOutlined />
+          Liên hệ ngay
+        </Button>
+      </div>
+    )
+  }
   const { data, loading, error } = useSelector((state) => state.learned);
-   const { apidata, loadingapi, errorapi } = useSelector((state) => state.language);
+  const { apidata, loadingapi, errorapi } = useSelector((state) => state.language);
+  const { productdata, productloading, producterror } = useSelector((state) => state.product);
   const dispatch = useDispatch();
   useEffect(() => {
     AOS.init({
@@ -20,13 +37,14 @@ const Home = () => {
     });
     dispatch(fetchLearnedDataThunk());
     dispatch(API())
+    dispatch(product())
   }, [dispatch]);
-  console.log(apidata);
-  const size = useState('large');
+  console.log(productdata);
+  const [size, setSize] = useState('large');
   return (
 
     <MasterLayouts>
-      <Flex vertical={true} className="bg_portfolio flex_row_main py-[8vh] " >
+      <Flex vertical={true} className="bg_portfolio flex_row_main py-[10vh]">
         <Flex horizontal className="p_main md:flex-row flex-col-reverse" style={{ width: "100%", display: 'flex', justifyContent: "space-between", paddingBottom: "2rem" }} >
           <Flex horizontal className="flex_row_main">
             <Flex vertical={true} className="" gap={2} style={{ display: 'flex', justifyContent: 'start', }} >
@@ -43,25 +61,18 @@ const Home = () => {
                 <span className="w-[40%]  h-1 bg-white"> </span>
 
               </div>
-              <div data-aos="zoom-in" className="flex justify-center " horizontal gap="2rem">
-                <Button className="px-10 py-5" type="primary" size={size}>
-                  <PhoneOutlined />
-                  Liên hệ ngay
-                </Button>
-              </div>
+              <ButonLienHen />
             </Flex>
-
           </Flex>
           <img data-aos="zoom-in" width={500} src="/logo.png" alt="" />
         </Flex>
       </Flex>
-
-      <Flex vertical={true} className="p_main screen  flex_row_main bg-white boder-List py-10">
+      <Flex id="gioi_thieu" vertical={true} className="p_main screen flex_row_main bg-white boder-List py-16">
         <Flex vertical={true} className="flex w-full justify-center items-center">
           <p data-aos="fade-down" className="title-4"> Đôi nét về tui   </p>
           <Flex horizontal className="gap-10 justify-center  items-center">
             {loading ? (<span class="loader"></span>) : (
-              <div  data-aos="fade-down" className="md:w-1/2 w-full flex flex-col justify-center text-black">
+              <div data-aos="fade-down" className="md:w-1/2 w-full flex flex-col justify-center text-black">
                 {Object.keys(data).map((key) => (
                   <p className="flex gap-2 "><span className="font-normal ">+</span>{data[key].name}</p>
                 ))}
@@ -73,38 +84,40 @@ const Home = () => {
           </Flex>
         </Flex>
       </Flex>
-      <Flex vertical={true} className="p_main  flex_row_main bg-white boder-List py-10">
+      <Flex id="cong_nghe" vertical={true} className="p_main flex_row_main bg-white boder-List py-16">
         <Flex vertical={true} className="flex w-full justify-center items-center">
-          <p data-aos="fade-down" className="title-4"> Công nghệ đã học    </p>
-          <Flex horizontal className="gap-10 justify-center  items-center">
+          <p data-aos="fade-down" className="title-4">Công nghệ đã học</p>
+          <Flex horizontal className="gap-10 justify-center items-center">
             <Flex vertical={true} className="w-1/2 md:flex hidden">
               <img data-aos="fade-right" src="/Congnghe.png" alt="" />
             </Flex>
             <Flex className="md:w-1/2 w-full flex flex-wrap md:gap-3 gap-2 justify-center">
-            {loadingapi ? (<span class="loader"></span>) : (
-              Object.keys(apidata).map((key) => (
-                <div data-aos="fade-down" key={key}>
-                  <ItemCard src={apidata[key].src} title={apidata[key].title} />
-                </div>
-              ))
-            )}
+              {loadingapi ? (<span className="loader"></span>) : (
+                Object.keys(apidata).map((key) => (
+                  <div data-aos="fade-down" key={key}>
+                    <ItemCard src={apidata[key].src} title={apidata[key].title} />
+                  </div>
+                ))
+              )}
             </Flex>
           </Flex>
         </Flex>
       </Flex>
-      <Flex vertical={true} className=" flex_row_main bg-white boder-List py-10">
-        <Flex horizontal  >
-          <p data-aos="fade-down" className="title-4">  Sản Phẩm  </p>
+      <Flex id="san_pham" vertical={true} className="flex_row_main bg-white boder-List p_main py-16">
+        <Flex horizontal>
+          <p data-aos="fade-down" className="title-4">Sản Phẩm</p>
         </Flex>
         <div className="flex flex-wrap gap-10 justify-center items-center">
-          {ItemProduct.map((item, index) => (
-            <div data-aos="zoom-in-down" key={index}>
-              <ItemCard src={item.src} title={item.title} />
-            </div>
-          ))}
-
+          {productloading ? (<span className="loader"></span>) : (
+            Object.keys(productdata).map((key) => (
+              <div data-aos="zoom-in-down" key={key}>
+                <ItemCard src={productdata[key].src} title={productdata[key].title} />
+              </div>
+            ))
+          )}
         </div>
       </Flex>
+
     </MasterLayouts>
 
   )
