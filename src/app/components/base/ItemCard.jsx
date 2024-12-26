@@ -1,14 +1,12 @@
 import React from "react";
 import { Card } from "antd";
 
-const ItemCard = ({ src, title })=> {
+const ItemCard = ({ src, title }) => {
   return (
       <Card
         hoverable
         className="Card text-card"
-        style={{
-        }}
-        cover={<img className="w-[20%]" alt={title} src={src}  />}
+        cover={<img alt={title} src={src} class="w-[20%]" />}
       >
         <p>{title}</p>
       </Card>

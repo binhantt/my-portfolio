@@ -1,4 +1,3 @@
-
 import { Button, Flex, Menu } from 'antd';
 import { Input } from 'antd';
 const { TextArea } = Input;
@@ -16,7 +15,7 @@ const Footer = () => {
   const [size, setSize] = useState('large');
   return (
     <div id="Lien_he" data-aos="fade-up"
-      data-aos-duration="3000" className='footer_color' style={{ paddingTop: "2rem" }} vertical>
+      data-aos-duration="3000" className='footer_color' style={{ paddingTop: "2rem" }} vertical="true">
       <Flex className='p_main flex md:flex-row flex-col' style={{ display: "flex", justifyContent: "space-between", gap: "3rem" }}>
         <Flex vertical gap={1} style={{ display: "flex", alignItems: "center" }}>
           <p className='title-3'> Liên Hệ tui  </p>
